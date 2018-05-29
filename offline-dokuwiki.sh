@@ -140,3 +140,11 @@ sed -i -e 's#href="\([^:]\+:\)#href="./\1#g' \
        -e "s@^<body\(.*\)@<body\1 $HEADER@" \
        -e "s@</body>@$FOOTER</body>@" \
        ${PREFIX}/${LOCATION%/*}/*.html
+
+# Restore broken links to the outside
+sed -i -e 's#<a href="./http#<a href="http#g' \
+       ${PREFIX}/${LOCATION%/*}/*.html
+
+
+# Remove some files that went through (eg. revisions)
+sudo find -name '*doku.php*&rev=*' -exec rm {} \;
