@@ -124,8 +124,8 @@ wget  --no-verbose \
       $ADDITIONNAL_WGET_OPTS \
       "$url"
 
-HEADER=$(echo "$HEADER" | sed "s#%HOSTNAME%#$url#")
-FOOTER=$(echo "$FOOTER" | sed "s#%HOSTNAME%#$url#")
+HEADER=$(echo "$HEADER" | sed "s#%HOSTNAME%#$url#g")
+FOOTER=$(echo "$FOOTER" | sed "s#%HOSTNAME%#$url#g")
 
 echo
 echo "[SED] fixing links(href...) in the HTML sources: ${PREFIX}/${LOCATION%/*}/*.html"
