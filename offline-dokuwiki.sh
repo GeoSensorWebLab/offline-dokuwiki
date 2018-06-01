@@ -13,8 +13,8 @@ PROTO=http
 DEF_DEPTH=2
 ADDITIONNAL_WGET_OPTS=${AWO}
 PROGNAME=${0##*/}
-HEADER="<div>This is an offline copy of <a href='%HOSTNAME%'>%HOSTNAME%</a>. It may be obsolete and some links may be broken.</div>"
-FOOTER="<footer>Cloned on $(date)</footer>"
+HEADER="<div class='small docInfo'>This is a copy of the <a href='%HOSTNAME%'>online version</a>.</div>"
+FOOTER="<footer><div class='small text-right docInfo'>Cloned on $(date).</div></footer>"
 PREFIX='auto'
 
 show_help() {
@@ -77,7 +77,7 @@ while [ $# -gt 0 ]; do
          ;;
       --header)
          shift
-         FOOTER="$1"
+         HEADER="$1"
 		;;
       --footer)
          shift
